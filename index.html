@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast App</title>
+    <link href="./src/output.css" rel="stylesheet" />
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+
+  </head>
+  <body class="bg-blue-100 min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+      <h1 class="text-2xl font-bold text-center mb-4">Weather Forecast</h1>
+
+<div class="weatherContainer" id="weatherContainer">
+  <h3 class="title">Weather App</h3>
+  <div class="weatherCard" id="weatherCard">
+    <div class="locationInputWrap">
+      <input type="text" placeholder="Enter location.." class="locationInput" id="locationInput" />
+      <div class="searchIconWrap" id="searchBtn">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="weatherData" id="weatherData">
+      <div class="weatherIconWrap">
+        <img src="" class="weatherIcon" id="weatherIcon" alt="" />
+        <div class="cityWrap">
+          <h1 class="temp" id="temp"></h1>
+          <h2 class="city" id="city"></h2>
+        </div>
+      </div>
+      <div class="details" id="details">
+        <div class="weatherCol">
+          <div>
+            <img src="images/humidity.png" alt="" />
+            <div class="humidity" id="humidity"></div>
+            <p>Humidity</p>
+          </div>
+        </div>
+        <div class="weatherCol">
+          <div>
+            <img src="images/wind.png" alt="" />
+            <div class="windSpeed" id="wind"></div>
+            <p>Windspeed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
