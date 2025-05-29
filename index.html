@@ -12,22 +12,26 @@
   </head>
 
   <body
-    class="w-full bg-blue-100 min-h-screen flex items-center justify-center px-4"
+    class="w-full bg-gradient-to-r from-indigo-100 to-blue-200 min-h-screen flex items-center justify-center px-4"
   >
     <main
-      class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 flex justify-center items-center flex-col"
+      class="w-full max-w-3xl bg-gradient-to-r from-indigo-300 to-blue-500 rounded-2xl shadow-lg p-2 flex justify-center items-center flex-col"
     >
-      <h1 class="text-2xl font-bold text-center mb-4">Weather Forecast</h1>
-
+      <h1
+        class="text-4xl text-center mb-4 text-white font-semibold drop-shadow-md"
+      >
+        WeatherWise
+      </h1>
+      <!-- Main weather section -->
       <section
-        class="weatherContainer w-full max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg"
+        class="weatherContainer w-full max-w-xl mx-auto"
         id="weatherContainer"
       >
         <div class="weatherCard w-full" id="weatherCard">
-          <!-- Search bar in a form for accessibility -->
+          <!-- Search bar  -->
           <form
             id="weatherForm"
-            class="locationInputWrap w-full flex flex-col items-center justify-center gap-2 p-2 mt-4"
+            class="locationInputWrap w-full flex flex-col items-center justify-center gap-2 p-2"
           >
             <!-- Wrap input, chevron, and dropdown in a relative container -->
             <div class="relative w-full">
@@ -35,12 +39,12 @@
                 <input
                   type="text"
                   placeholder="Enter location.."
-                  class="locationInput w-3/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  class="locationInput w-3/4 px-4 py-2 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100 bg-gradient-to-r from-indigo-80 to-blue-100"
                   id="locationInput"
                 />
                 <button
                   type="submit"
-                  class="searchIconWrap p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 cursor-pointer"
+                  class="searchIconWrap p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-400 transition duration-300 cursor-pointer"
                   id="searchBtn"
                 >
                   <i class="fa fa-search" aria-hidden="true"></i>
@@ -70,7 +74,7 @@
             <button
               type="button"
               id="currentLocationBtn"
-              class="bg-blue-500 text-white px-4 py-2 rounded mt-2 w-3/4 hover:bg-blue-600"
+              class="bg-gray-100 text-gray-800 px-4 py-2 rounded mt-2 w-3/4 hover:bg-blue-100 cursor-pointer"
             >
               Use Current Location
             </button>
@@ -78,35 +82,56 @@
 
           <!-- Weather result section, hidden by default -->
           <article class="weatherData hidden" id="weatherData">
-            <div class="weatherIconWrap">
-              <img
-                src=""
-                class="weatherIcon"
-                id="weatherIcon"
-                alt="Weather Icon"
-              />
-              <div class="cityWrap">
-                <h1 class="temp" id="temp"></h1>
-                <h2 class="city" id="city"></h2>
+            <div
+              class="currentWeatherData w-full flex flex-col justify-center items-center"
+            >
+              <div class="weatherIconWrap">
+                <img
+                  src=""
+                  class="weatherIcon"
+                  id="weatherIcon"
+                  alt="Weather Icon"
+                />
+                <div class="cityWrap">
+                  <h1
+                    class="temp text-white text-opacity-70 text-4xl"
+                    id="temp"
+                  ></h1>
+                  <h2
+                    class="city text-2xl sm:text-3xl text-white font-bold drop-shadow-lg"
+                    id="city"
+                  ></h2>
+                </div>
               </div>
-            </div>
 
-            <div class="details" id="details">
-              <div class="weatherCol">
-                <div>
-                  <img src="images/humidity.png" alt="Humidity Icon" />
-                  <div class="humidity" id="humidity"></div>
-                  <p>Humidity</p>
+              <div class="details w-full flex justify-around" id="details">
+                <div class="weatherCol">
+                  <div>
+                    <img src="images/humidity.png" alt="Humidity Icon" />
+                    <div
+                      class="humidity text-white text-opacity-70"
+                      id="humidity"
+                    ></div>
+                    <p class="text-white text-opacity-70">Humidity</p>
+                  </div>
                 </div>
-              </div>
-              <div class="weatherCol">
-                <div>
-                  <img src="images/wind.png" alt="Wind Icon" />
-                  <div class="windSpeed" id="wind"></div>
-                  <p>Windspeed</p>
+                <div class="weatherCol">
+                  <div>
+                    <img src="images/wind.png" alt="Wind Icon" />
+                    <div
+                      class="windSpeed text-white text-opacity-70"
+                      id="wind"
+                    ></div>
+                    <p class="text-white text-opacity-70">Windspeed</p>
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- Forecast for next 5 days -->
+            <div
+              id="forecastContainer"
+              class="mt-1 flex gap-4 justify-center flex-wrap lg:flex-nowrap"
+            ></div>
           </article>
         </div>
       </section>
