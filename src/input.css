@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @import "tailwindcss/preflight"
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+  padding: initial;
+  margin: initial;
+  box-sizing: border-box;
+}

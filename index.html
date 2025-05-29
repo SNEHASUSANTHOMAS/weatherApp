@@ -5,55 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Forecast App</title>
     <link href="./src/output.css" rel="stylesheet" />
-
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
-
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
-  <body class="bg-blue-100 min-h-screen flex items-center justify-center px-4">
-    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+
+  <body
+    class="w-full bg-blue-100 min-h-screen flex items-center justify-center px-4"
+  >
+    <main
+      class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 flex justify-center items-center flex-col"
+    >
       <h1 class="text-2xl font-bold text-center mb-4">Weather Forecast</h1>
 
-<div class="weatherContainer" id="weatherContainer">
-  <h3 class="title">Weather App</h3>
-  <div class="weatherCard" id="weatherCard">
-    <div class="locationInputWrap">
-      <input type="text" placeholder="Enter location.." class="locationInput" id="locationInput" />
-      <div class="searchIconWrap" id="searchBtn">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </div>
-    </div>
-    <div class="weatherData" id="weatherData">
-      <div class="weatherIconWrap">
-        <img src="" class="weatherIcon" id="weatherIcon" alt="" />
-        <div class="cityWrap">
-          <h1 class="temp" id="temp"></h1>
-          <h2 class="city" id="city"></h2>
-        </div>
-      </div>
-      <div class="details" id="details">
-        <div class="weatherCol">
-          <div>
-            <img src="images/humidity.png" alt="" />
-            <div class="humidity" id="humidity"></div>
-            <p>Humidity</p>
-          </div>
-        </div>
-        <div class="weatherCol">
-          <div>
-            <img src="images/wind.png" alt="" />
-            <div class="windSpeed" id="wind"></div>
-            <p>Windspeed</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+      <section
+        class="weatherContainer w-full max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg"
+        id="weatherContainer"
+      >
+        <div class="weatherCard" id="weatherCard">
+          <!-- Search bar in a form for accessibility -->
+          <form
+            id="weatherForm"
+            class="locationInputWrap w-full flex items-center justify-center gap-2 mt-4"
+          >
+            <input
+              type="text"
+              placeholder="Enter location.."
+              class="locationInput w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              id="locationInput"
+            />
+            <button
+              type="submit"
+              class="searchIconWrap p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+              id="searchBtn"
+            >
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
 
+          <!-- Weather result section, hidden by default -->
+          <article class="weatherData hidden" id="weatherData">
+            <div class="weatherIconWrap">
+              <img
+                src=""
+                class="weatherIcon"
+                id="weatherIcon"
+                alt="Weather Icon"
+              />
+              <div class="cityWrap">
+                <h1 class="temp" id="temp"></h1>
+                <h2 class="city" id="city"></h2>
+              </div>
+            </div>
+
+            <div class="details" id="details">
+              <div class="weatherCol">
+                <div>
+                  <img src="images/humidity.png" alt="Humidity Icon" />
+                  <div class="humidity" id="humidity"></div>
+                  <p>Humidity</p>
+                </div>
+              </div>
+              <div class="weatherCol">
+                <div>
+                  <img src="images/wind.png" alt="Wind Icon" />
+                  <div class="windSpeed" id="wind"></div>
+                  <p>Windspeed</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
 
     <script src="script.js"></script>
   </body>
