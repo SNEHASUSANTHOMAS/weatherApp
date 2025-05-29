@@ -74,12 +74,47 @@ let weatherApp = {
             // Make weather section visible
             this.weatherData.classList.remove("hidden");
             this.weatherData.classList.add("flex", "justify-center", "items-center");
+            this.saveRecentSearch(this.data.name); // Store to localStorage
             this.details.classList.remove("hidden");
 
         } catch (error) {
             console.error("Problem fetching weather:", error.message);
         }
-    }
+    },
+    // --- Recent Searches Feature ---
+recentSearchKey: "recentCities",
+dropdown: document.getElementById("recentDropdown"),
+recentList: document.getElementById("recentList"),
+toggleBtn: document.getElementById("toggleDropdownBtn"),
+
+// Save city to localStorage
+saveRecentSearch: function(city) {
+    let recent = JSON.parse(localStorage.getItem(this.recentSearchKey)) || [];
+    recent = recent.filter(item => item.toLowerCase() !== city.toLowerCase());
+    recent.unshift(city); // Add to front
+    if (recent.length > 5) recent.pop(); // Limit to 5
+    localStorage.setItem(this.recentSearchKey, JSON.stringify(recent));
+},
+
+// Load recent cities into dropdown
+loadRecentSearches: function() {
+    this.recentList.innerHTML = ""; // Clear existing
+    let recent = JSON.parse(localStorage.getItem(this.recentSearchKey)) || [];
+
+    recent.forEach(city => {
+        let li = document.createElement("li");
+        li.textContent = city;
+        li.className = "cursor-pointer px-4 py-2 hover:bg-gray-100";
+        li.addEventListener("click", () => {
+            this.searchWeather(city);
+            this.dropdown.classList.add("hidden");
+        });
+        this.recentList.appendChild(li);
+    });
+
+    this.dropdown.classList.toggle("hidden");
+},
+
 };
 
 // Handle form submission instead of button click directly
@@ -112,4 +147,9 @@ currentLocationBtn.addEventListener("click", function () {
         alert("Geolocation not supported by this browser.");
     }
 });
+// Handle dropdown button click
+weatherApp.toggleBtn.addEventListener("click", function () {
+    weatherApp.loadRecentSearches();
+});
+
 
