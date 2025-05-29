@@ -23,31 +23,56 @@
         class="weatherContainer w-full max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg"
         id="weatherContainer"
       >
-        <div class="weatherCard" id="weatherCard">
+        <div class="weatherCard w-full" id="weatherCard">
           <!-- Search bar in a form for accessibility -->
           <form
             id="weatherForm"
-            class="locationInputWrap w-full flex flex-col items-center justify-center gap-2 mt-4"
+            class="locationInputWrap w-full flex flex-col items-center justify-center gap-2 p-2 mt-4"
           >
-            <input
-              type="text"
-              placeholder="Enter location.."
-              class="locationInput w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              id="locationInput"
-            />
+            <!-- Wrap input, chevron, and dropdown in a relative container -->
+            <div class="relative w-full">
+              <div class="w-full flex justify-around">
+                <input
+                  type="text"
+                  placeholder="Enter location.."
+                  class="locationInput w-3/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  id="locationInput"
+                />
+                <button
+                  type="submit"
+                  class="searchIconWrap p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 cursor-pointer"
+                  id="searchBtn"
+                >
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <!-- Chevron Icon Button -->
+              <button
+                type="button"
+                id="toggleDropdownBtn"
+                class="absolute right-1/4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-black cursor-pointer"
+                title="Show recent searches"
+              >
+                <i class="fa fa-chevron-down"></i>
+              </button>
+
+              <div
+                id="recentDropdown"
+                class="hidden absolute top-full mt-2 left-3 w-2/3 bg-white shadow-md border border-gray-300 rounded-md z-10"
+              >
+                <ul
+                  id="recentList"
+                  class="max-h-40 overflow-y-auto text-sm text-gray-700 divide-y divide-gray-300"
+                ></ul>
+              </div>
+            </div>
             <button
               type="button"
               id="currentLocationBtn"
-              class="bg-blue-500 text-white px-4 py-2 rounded mt-2 w-full hover:bg-blue-600"
+              class="bg-blue-500 text-white px-4 py-2 rounded mt-2 w-3/4 hover:bg-blue-600"
             >
               Use Current Location
-            </button>
-            <button
-              type="submit"
-              class="searchIconWrap p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
-              id="searchBtn"
-            >
-              <i class="fa fa-search" aria-hidden="true"></i>
             </button>
           </form>
 
